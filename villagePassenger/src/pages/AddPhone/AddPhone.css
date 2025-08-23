@@ -1,0 +1,133 @@
+.phone-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* Header */
+.phone-header {
+  background-color: #1c1c28;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.phone-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.phone-progress-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-progress-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.phone-progress-step,
+.phone-progress-step-inactive {
+  width: 30px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.phone-progress-step {
+  background-color: #fff;
+}
+
+.phone-progress-step-inactive {
+  background-color: #666;
+}
+
+.phone-step-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Content */
+.phone-content {
+  flex: 1;
+  padding: 24px;
+  text-align: center;
+}
+
+.phone-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1c1c28;
+  margin-bottom: 8px;
+}
+
+.phone-subheading {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.phone-input-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.phone-country-code {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 67px;
+}
+
+.phone-flag {
+  font-size: 20px;
+}
+
+.phone-code {
+  margin-left: 6px;
+  font-size: 16px;
+  color: #333;
+}
+
+.phone-input {
+  flex: 1;
+  border: 1px solid #007aff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #333;
+}
+
+.phone-terms {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.phone-terms-link {
+  color: #007aff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.phone-continue-btn {
+  background-color: #1c1c28;
+  color: #ffcc00;
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 230px;
+}

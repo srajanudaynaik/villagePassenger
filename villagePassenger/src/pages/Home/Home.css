@@ -1,0 +1,30 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #fff;
+  }
+  
+  .home-map {
+    flex: 1;
+    background: #e8f4fd; /* map placeholder color */
+    position: relative;
+  }
+  
+  .home-vehicles {
+    padding: 0 16px 16px;
+  }
+  
+  .home-section-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1c1c28;
+  }
+  
+  .home-vehicle-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }

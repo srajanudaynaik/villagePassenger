@@ -1,0 +1,46 @@
+.vehicle-card {
+    min-width: 160px;
+    padding: 12px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .vehicle-card:hover {
+    border-color: #1c1c28;
+  }
+  
+  .vehicle-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  
+  .vehicle-info {
+    margin-bottom: 6px;
+  }
+  
+  .vehicle-type {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 2px;
+  }
+  
+  .vehicle-driver {
+    font-size: 14px;
+    color: #555;
+    margin: 0 0 2px;
+  }
+  
+  .vehicle-eta {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+  }
+  
+  .vehicle-fare {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1c1c28;
+  }
