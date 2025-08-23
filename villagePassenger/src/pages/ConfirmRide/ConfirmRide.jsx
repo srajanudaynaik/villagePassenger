@@ -53,7 +53,7 @@ export default function ConfirmPickup() {
 
       {/* Confirm button */}
       <footer className="cp-footer">
-        <button className="cp-confirm" onClick={() => navigate("/track-ride")}>
+        <button className="cp-confirm" onClick={() => navigate("/finding-drivers")}>
           Confirm Pickup
         </button>
       </footer>
