@@ -3,7 +3,7 @@ import api from "./api";
 export const LocationService = {
   async searchPlaces(query) {
     const { data } = await api.get("/places", { params: { q: query } });
-    return data.predictions || []; // Google-like response
+    return data.predictions || [];
   },
 
   async reverseGeocode(lat, lng) {

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+// import { LocationService } from "../../services/locationService"; // <- real API
 import "./SearchLocation.css";
 
 const mockPlaces = [
@@ -10,24 +11,51 @@ const mockPlaces = [
 
 export default function SearchLocation() {
   const navigate = useNavigate();
-  const [pickup, setPickup] = useState("Current Location");
+  const [pickup] = useState("Current Location");
   const [drop, setDrop] = useState("");
-  const [stops, setStops] = useState([]);
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [forMe, setForMe] = useState(true);
   const [showSheet, setShowSheet] = useState(false);
+
+  /* ---------- LOCAL MOCK SEARCH ---------- */
+  useEffect(() => {
+    if (!drop.trim()) {
+      setResults([]);
+      return;
+    }
+    setLoading(true);
+    // simulate network delay
+    setTimeout(() => {
+      const filtered = mockPlaces.filter(
+        (p) =>
+          p.name.toLowerCase().includes(drop.toLowerCase()) ||
+          p.address.toLowerCase().includes(drop.toLowerCase())
+      );
+      setResults(filtered);
+      setLoading(false);
+    }, 300);
+  }, [drop]);
+
+  /* ---------- REAL API SWITCH (uncomment to use) ----------
+  useEffect(() => {
+    const controller = new AbortController();
+    if (!drop.trim()) { setResults([]); return; }
+    setLoading(true);
+    LocationService.searchPlaces(drop, { signal: controller.signal })
+      .then(setResults)
+      .finally(() => setLoading(false));
+    return () => controller.abort();
+  }, [drop]);
+  ----------------------------------------------------------- */
 
   const handleSelect = (place) => {
     setDrop(place.name);
     navigate("/confirm-ride");
   };
 
-  const results = drop.trim()
-    ? mockPlaces.filter(
-        (p) =>
-          p.name.toLowerCase().includes(drop.toLowerCase()) ||
-          p.address.toLowerCase().includes(drop.toLowerCase())
-      )
-    : [];
+  const openMap = () => alert("Map picker coming soon");
+  const addStops = () => alert("Add stops coming soon");
 
   return (
     <div className="search-location-container">
@@ -42,7 +70,7 @@ export default function SearchLocation() {
         </button>
         <h1 className="sl-title">Search location</h1>
         <button className="sl-forMeBtn" onClick={() => setShowSheet(true)}>
-          For me
+          <span>For me</span>
           <img
             src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png"
             alt="chevron"
@@ -51,11 +79,11 @@ export default function SearchLocation() {
         </button>
       </header>
 
-      {/* Pickup / Drop */}
+      {/* BIG pickup / drop card */}
       <section className="sl-location-box">
         <div className="sl-dot-line">
           <span className="sl-dot sl-green"></span>
-          <div className="sl-line"></div>
+          <span className="sl-line"></span>
           <span className="sl-dot sl-orange"></span>
         </div>
         <div className="sl-inputs">
@@ -63,50 +91,42 @@ export default function SearchLocation() {
             type="text"
             value={pickup}
             readOnly
-            placeholder="Pickup location"
             className="sl-input"
+            placeholder="Pickup location"
           />
           <input
             type="text"
             value={drop}
             onChange={(e) => setDrop(e.target.value)}
-            placeholder="Drop location"
             className="sl-input"
+            placeholder="Drop location"
           />
         </div>
       </section>
 
       {/* Action buttons */}
       <section className="sl-actions">
-        <button className="sl-btn" onClick={() => alert("Open map picker")}>
+        <button className="sl-btn" onClick={openMap}>
           <img
             src="https://cdn-icons-png.flaticon.com/512/592/592245.png"
             alt="map"
             className="icon16"
           />
-          Select on map
+          <span>Select on map</span>
         </button>
-        <button className="sl-btn" onClick={() => alert("Add stops")}>
+        <button className="sl-btn" onClick={addStops}>
           <img
             src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png"
-            alt="add"
+            alt="plus"
             className="icon16"
           />
-          Add stops
+          <span> Add stops</span>
         </button>
       </section>
 
-      {/* Stops list */}
-      {stops.length > 0 && (
-        <ul className="sl-stops">
-          {stops.map((s, i) => (
-            <li key={i}>Stop {i + 1}: {s}</li>
-          ))}
-        </ul>
-      )}
-
-      {/* Results */}
-      {drop.trim() && (
+      {/* Results list */}
+      {loading && <div className="sl-loading">Searching…</div>}
+      {!loading && drop.trim() && (
         <ul className="sl-results">
           {results.map((p) => (
             <li key={p.id} onClick={() => handleSelect(p)}>
@@ -118,11 +138,11 @@ export default function SearchLocation() {
         </ul>
       )}
 
-      {/* Bottom sheet mimic */}
+      {/* Bottom sheet */}
       {showSheet && (
         <div className="sl-overlay" onClick={() => setShowSheet(false)}>
           <div className="sl-sheet" onClick={(e) => e.stopPropagation()}>
-            <header>
+            <header className="sl-sheet-header">
               <button onClick={() => setShowSheet(false)}>
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/545/545680.png"
@@ -139,7 +159,6 @@ export default function SearchLocation() {
             >
               Myself
             </button>
-
             <button
               className={`sl-sheet-btn ${!forMe ? "active" : ""}`}
               onClick={() => setForMe(false)}
@@ -150,7 +169,6 @@ export default function SearchLocation() {
             <p className="sl-info">
               Contact name won’t be shared with captain
             </p>
-
             <button className="sl-done" onClick={() => setShowSheet(false)}>
               Done
             </button>

@@ -1,0 +1,99 @@
+/* ---------- ROOT ---------- */
+.confirm-pickup-container {
+    display: flex;
+    flex-direction: column;
+    height: 98vh;          /* 100 % height, not 100vh */
+    background: #fff;
+    font-family: system-ui, sans-serif;
+  }
+  
+  /* ---------- HEADER ---------- */
+  .cp-header {
+    display: flex;
+    align-items: center;
+    /* padding: 12px 20px; */
+    border-bottom: 1px solid #e5e5ea;
+    flex-shrink: 0;
+    height: 49px;
+  }
+  .cp-back {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .cp-back:hover { transform: scale(1.1); }
+  .cp-title {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  /* ---------- MAP ---------- */
+  .cp-map-wrapper {
+    flex: 1; /* fills remaining height */
+    position: relative;
+  }
+  .cp-map {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: 1;
+  }
+  
+  /* ---------- NEARBY LIST ---------- */
+  .cp-nearby {
+    padding: 16px 20px;
+    background: #f9f9f9;
+    flex-shrink: 0;
+  }
+  .cp-nearby h2 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  .cp-item {
+    padding: 14px;
+    border-radius: 12px;
+    background: #fff;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 1px solid #e5e5ea;
+    transition: all 0.2s ease;
+  }
+  .cp-item:hover,
+  .cp-item.active {
+    border-color: #007aff;
+    background: #f0f8ff;
+  }
+  .cp-item strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+  .cp-item span {
+    font-size: 14px;
+    color: #8e8e93;
+  }
+  
+  /* ---------- FOOTER ---------- */
+  .cp-footer {
+    padding: 12px 20px;
+    border-top: 1px solid #e5e5ea;
+    flex-shrink: 0;
+  }
+  .cp-confirm {
+    width: 100%;
+    background: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 14px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .cp-confirm:hover {
+    background: #005bb5;
+  }
