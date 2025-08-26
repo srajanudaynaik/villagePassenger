@@ -1,4 +1,4 @@
-/* ------------ page wrapper ------------ */
+/* wrapper */
 .finding-drivers-container {
   position: relative;
   height: 100vh;
@@ -6,19 +6,19 @@
   overflow: hidden;
 }
 
-/* ------------ Leaflet map ------------ */
+/* map */
 .bg-map {
   height: 100%;
   width: 100%;
   transition: filter 0.6s ease;
 }
 
-/* blur applied after 3 s */
+/* blur + loader trigger */
 .blur-map .bg-map {
   filter: blur(6px);
 }
 
-/* ------------ centered loader ------------ */
+/* centered loader */
 .center-box {
   position: absolute;
   inset: 0;
@@ -28,10 +28,9 @@
   justify-content: center;
   color: #fff;
   z-index: 999;
-  pointer-events: none; /* let clicks pass through */
 }
 
-/* ------------ spinning car ------------ */
+/* spinning car */
 .car-spinner {
   width: 64px;
   height: 64px;
@@ -41,20 +40,17 @@
   animation: spin 1.5s linear infinite;
 }
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-/* ------------ text ------------ */
+/* text */
 .finding-text {
   font-size: 22px;
   font-weight: 600;
   margin: 0 0 12px;
-  color: black;
 }
 
-/* ------------ pulsing dot ------------ */
+/* pulsing dot */
 .pulse-dot {
   width: 12px;
   height: 12px;
@@ -64,18 +60,11 @@
   animation: pulse 1.2s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.6;
-  }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: 0.6; }
 }
 
-/* ------------ hint ------------ */
+/* hint */
 .trip-hint {
   font-size: 14px;
   opacity: 0.9;
