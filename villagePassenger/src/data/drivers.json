@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul Kumar",
+    "vehicle": "KA 01 AB 1234",
+    "rating": 4.7,
+    "image": "https://i.pravatar.cc/60?u=1",
+    "phone": "+919876543201"
+  },
+  {
+    "id": 2,
+    "name": "Priya Sharma",
+    "vehicle": "KA 05 CD 5678",
+    "rating": 4.9,
+    "image": "https://i.pravatar.cc/60?u=2",
+    "phone": "+919876543202"
+  },
+  {
+    "id": 3,
+    "name": "Arjun Reddy",
+    "vehicle": "KA 03 EF 9012",
+    "rating": 4.3,
+    "image": "https://i.pravatar.cc/60?u=3",
+    "phone": "+919876543203"
+  },
+  {
+    "id": 4,
+    "name": "Neha Gupta",
+    "vehicle": "KA 07 GH 3456",
+    "rating": 4.8,
+    "image": "https://i.pravatar.cc/60?u=4",
+    "phone": "+919876543204"
+  },
+  {
+    "id": 5,
+    "name": "Suresh Patel",
+    "vehicle": "KA 09 IJ 7890",
+    "rating": 4.5,
+    "image": "https://i.pravatar.cc/60?u=5",
+    "phone": "+919876543205"
+  },
+  {
+    "id": 6,
+    "name": "Kavita Joshi",
+    "vehicle": "KA 02 KL 1234",
+    "rating": 4.6,
+    "image": "https://i.pravatar.cc/60?u=6",
+    "phone": "+919876543206"
+  },
+  {
+    "id": 7,
+    "name": "Manoj Das",
+    "vehicle": "KA 04 MN 5678",
+    "rating": 4.2,
+    "image": "https://i.pravatar.cc/60?u=7",
+    "phone": "+919876543207"
+  },
+  {
+    "id": 8,
+    "name": "Sunita Mehra",
+    "vehicle": "KA 06 OP 9012",
+    "rating": 4.9,
+    "image": "https://i.pravatar.cc/60?u=8",
+    "phone": "+919876543208"
+  },
+  {
+    "id": 9,
+    "name": "Rajesh Yadav",
+    "vehicle": "KA 08 QR 3456",
+    "rating": 4.4,
+    "image": "https://i.pravatar.cc/60?u=9",
+    "phone": "+919876543209"
+  },
+  {
+    "id": 10,
+    "name": "Anita Verma",
+    "vehicle": "KA 10 ST 7890",
+    "rating": 4.8,
+    "image": "https://i.pravatar.cc/60?u=10",
+    "phone": "+919876543210"
+  }
+]

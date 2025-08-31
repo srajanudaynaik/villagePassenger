@@ -1,0 +1,121 @@
+.driverdetails__page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.driverdetails__map {
+  flex: 1 1 65%;
+  width: 100%;
+}
+
+.driverdetails__car-icon {
+  font-size: 28px;
+  text-align: center;
+  line-height: 28px;
+}
+
+.driverdetails__bottom {
+  flex: 1 1 35%;
+  background: #fff;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px 20px;
+  overflow: hidden;
+}
+
+.driverdetails__card,
+.driverdetails__drawer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.driverdetails__banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #007aff;
+}
+
+.driverdetails__eta {
+  background: #e8f1ff;
+  color: #007aff;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.driverdetails__driver {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.driverdetails__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.driverdetails__stars {
+  color: #ffb400;
+}
+
+.driverdetails__icons {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.driverdetails__icons button {
+  background: #e8f1ff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.driverdetails__icons button img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.driverdetails__tripbtn,
+.driverdetails__closeBtn {
+  background: #007aff;
+  color: #fff;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.driverdetails__detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.driverdetails__detailRow:last-child {
+  border-bottom: none;
+}
+
+.driverdetails__label {
+  font-weight: 600;
+  color: #333;
+}
+
+.driverdetails__value {
+  color: #007aff;
+}

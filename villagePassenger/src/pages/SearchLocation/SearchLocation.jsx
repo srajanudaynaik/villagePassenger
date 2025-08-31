@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { LocationService } from "../../services/locationService"; // <- real API
 import "./SearchLocation.css";
 
+/* 2-km mock places */
 const mockPlaces = [
   { id: "1", name: "Kumta", address: "Karnataka, India", distance: "11 km" },
   { id: "2", name: "Kumta Beach", address: "Karnataka, India", distance: "12 km" },
   { id: "3", name: "Kumta Railway Station", address: "Karnataka, India", distance: "10 km" },
+  { id: "4", name: "Airport", address: "Karnataka, India", distance: "15 km" },
+  { id: "5", name: "MG Road", address: "Karnataka, India", distance: "9 km" },
 ];
 
 export default function SearchLocation() {
@@ -18,14 +20,13 @@ export default function SearchLocation() {
   const [forMe, setForMe] = useState(true);
   const [showSheet, setShowSheet] = useState(false);
 
-  /* ---------- LOCAL MOCK SEARCH ---------- */
+  /* ---------- MOCK SEARCH ---------- */
   useEffect(() => {
     if (!drop.trim()) {
       setResults([]);
       return;
     }
     setLoading(true);
-    // simulate network delay
     setTimeout(() => {
       const filtered = mockPlaces.filter(
         (p) =>
@@ -37,25 +38,21 @@ export default function SearchLocation() {
     }, 300);
   }, [drop]);
 
-  /* ---------- REAL API SWITCH (uncomment to use) ----------
-  useEffect(() => {
-    const controller = new AbortController();
-    if (!drop.trim()) { setResults([]); return; }
-    setLoading(true);
-    LocationService.searchPlaces(drop, { signal: controller.signal })
-      .then(setResults)
-      .finally(() => setLoading(false));
-    return () => controller.abort();
-  }, [drop]);
-  ----------------------------------------------------------- */
-
+  /* ---------- HANDLERS ---------- */
   const handleSelect = (place) => {
     setDrop(place.name);
     navigate("/confirm-ride");
   };
 
-  const openMap = () => alert("Map picker coming soon");
-  const addStops = () => alert("Add stops coming soon");
+  const openMap = () =>
+    navigate("/location-map", {
+      state: { pickup, stops: [], drop },
+    });
+
+  const addStop = () =>
+    navigate("/location-map", {
+      state: { pickup, stops: [""], drop },
+    });
 
   return (
     <div className="search-location-container">
@@ -79,7 +76,7 @@ export default function SearchLocation() {
         </button>
       </header>
 
-      {/* BIG pickup / drop card */}
+      {/* Location card */}
       <section className="sl-location-box">
         <div className="sl-dot-line">
           <span className="sl-dot sl-green"></span>
@@ -114,17 +111,17 @@ export default function SearchLocation() {
           />
           <span>Select on map</span>
         </button>
-        <button className="sl-btn" onClick={addStops}>
+        <button className="sl-btn" onClick={addStop}>
           <img
             src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png"
             alt="plus"
             className="icon16"
           />
-          <span> Add stops</span>
+          <span>Add stops</span>
         </button>
       </section>
 
-      {/* Results list */}
+      {/* Results */}
       {loading && <div className="sl-loading">Searching…</div>}
       {!loading && drop.trim() && (
         <ul className="sl-results">

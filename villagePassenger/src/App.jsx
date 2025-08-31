@@ -4,6 +4,7 @@ import Otp from "./pages/Otp/Otp";
 import Language from "./pages/Language/Language";
 import Home from "./pages/Home/Home";
 import SearchLocation from "./pages/SearchLocation/SearchLocation";
+import LocationMap from "./pages/LocationMap/LocationMap";
 import ConfirmRide from "./pages/ConfirmRide/ConfirmRide";
 import FindingDrivers from "./pages/FindingDrivers/FindingDrivers";
 import DriverList from "./pages/DriverList/DriverList";
@@ -20,10 +21,11 @@ export default function App() {
         <Route path="/language" element={<Language />} />
         <Route path="/home" element={<Home />} />
         <Route path="/search-location" element={<SearchLocation />} />
+        <Route path="/location-map" element={<LocationMap />} />
         <Route path="/confirm-ride" element={<ConfirmRide />} />
         <Route path="/finding-drivers" element={<FindingDrivers />} />
         <Route path="/driver-list" element={<DriverList />} />
-        <Route path="/driver-details/:id" element={<DriverDetails />} />
+       <Route path="/driver-details" element={<DriverDetails />} />
         <Route path="/track-ride" element={<TrackRide />} />
         <Route path="/rating" element={<Rating />} />
       </Routes>
